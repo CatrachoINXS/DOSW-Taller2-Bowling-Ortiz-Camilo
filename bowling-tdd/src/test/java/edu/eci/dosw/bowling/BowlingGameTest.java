@@ -72,4 +72,22 @@ public class BowlingGameTest {
         assertEquals(FrameType.SPARE, game.getFrames().get(0).getFrameType());
     }
 
+    @Test
+    @DisplayName("El décimo roll con Strike acepta tres tiradas")
+    void tenthFrameWithStrikeShouldAcceptThreeRolls() {
+        BowlingGame game = new BowlingGame();
+        for (int i = 0; i < 9; i++) {
+            game.roll(0);
+            game.roll(0);
+        }
+
+        game.getFrames().stream().forEach(f -> System.out.println(f.getPins() + " " + f.toString()));
+        
+        assertDoesNotThrow(() -> {
+            game.roll(10);
+            game.roll(10);
+            game.roll(10);
+        });
+    }
+
 }

@@ -45,7 +45,7 @@ public class BowlingGame {
 
     /** true cuando los 10 frames han sido completados. */
     public boolean isComplete() {
-        return this.frames.size() == 10;
+        return this.frames.size() == 10 && this.frames.get(9).isComplete();
     }
 
     public List<Frame> getFrames() { return List.copyOf(frames); }

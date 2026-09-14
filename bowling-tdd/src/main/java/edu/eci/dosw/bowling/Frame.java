@@ -30,7 +30,7 @@ public class Frame {
     }
 
     public boolean isComplete() {
-        return pins == 10;
+        return pins == 10 || attempts == 2;
     }
 
     public FrameType getFrameType() {

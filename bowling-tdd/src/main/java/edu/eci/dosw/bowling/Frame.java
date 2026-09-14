@@ -6,6 +6,7 @@ public class Frame {
     private boolean bonus = false;
     private FrameType frameType;
     private int firstRoll = 0;
+    private int secondRoll = 0;
 
     public Frame() {
         this.pins = 0;
@@ -22,6 +23,8 @@ public class Frame {
 
         if (attempts == 1) {
             this.firstRoll = newPins;
+        } else if (attempts == 2) {
+            this.secondRoll = newPins;
         }
 
         if (!frameType.equals(FrameType.TENTH)) {
@@ -63,6 +66,10 @@ public class Frame {
 
     public int getFirstRoll() {
         return firstRoll;
+    }
+
+    public int getSecondRoll() {
+        return secondRoll;
     }
     
 }

@@ -12,6 +12,9 @@ public class BowlingScorer {
                 int score = frame.getPins();
                 if (frame.getFrameType().equals(FrameType.SPARE)) {
                     score += frames.get(i + 1).getFirstRoll();
+                } else if (frame.getFrameType().equals(FrameType.STRIKE)) {
+                    Frame nextFrame = frames.get(i + 1);
+                    score += (nextFrame.getFirstRoll() + nextFrame.getSecondRoll());
                 }
 
                 return score;

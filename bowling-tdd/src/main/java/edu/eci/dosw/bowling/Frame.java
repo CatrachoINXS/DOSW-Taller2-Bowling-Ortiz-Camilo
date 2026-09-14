@@ -25,7 +25,6 @@ public class Frame {
                 this.frameType = FrameType.SPARE;
             }
         }
-        
     }
 
     public int getPins() {
@@ -46,5 +45,4 @@ public class Frame {
     public void isTenthFrame() {
         this.frameType = FrameType.TENTH;
     }
-
 }

@@ -29,7 +29,7 @@ public class BowlingGame {
         } else if (pins > 10) {
             throw new IllegalArgumentException("Los valores mayores a 10 no son válidos");
         }
-        
+
         if (frames.isEmpty() || frames.get(currentFrame).isComplete()) {
             frames.add(new Frame());
             currentFrame++;

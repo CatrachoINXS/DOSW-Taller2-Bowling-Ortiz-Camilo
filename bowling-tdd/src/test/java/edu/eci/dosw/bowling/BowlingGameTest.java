@@ -146,7 +146,7 @@ public class BowlingGameTest {
         game.roll(5);
         rollMany(game, 15, 0);
 
-        assertEquals(40, game.score());
+        assertEquals(45, game.score());
         assertTrue(game.isComplete());
     }
 

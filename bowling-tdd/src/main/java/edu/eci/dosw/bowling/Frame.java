@@ -1,17 +1,20 @@
 package edu.eci.dosw.bowling;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Frame {
     private int pins;
     private int attempts;
     private boolean bonus = false;
     private FrameType frameType;
-    private int firstRoll = 0;
-    private int secondRoll = 0;
+    private List<Integer> rolls;
 
     public Frame() {
         this.pins = 0;
         this.attempts = 0;
         this.frameType = FrameType.NORMAL;
+        this.rolls = new ArrayList<>();
     }
 
     public void addPins(int newPins) {
@@ -20,12 +23,7 @@ public class Frame {
         }
         pins += newPins;
         attempts++;
-
-        if (attempts == 1) {
-            this.firstRoll = newPins;
-        } else if (attempts == 2) {
-            this.secondRoll = newPins;
-        }
+        rolls.add(newPins);
 
         if (!frameType.equals(FrameType.TENTH)) {
             this.frameType = validateFrameType();
@@ -64,12 +62,8 @@ public class Frame {
         this.frameType = FrameType.TENTH;
     }
 
-    public int getFirstRoll() {
-        return firstRoll;
-    }
-
-    public int getSecondRoll() {
-        return secondRoll;
+    public List<Integer> getRolls() {
+        return rolls;
     }
     
 }

@@ -22,7 +22,9 @@ public class BowlingGame {
     public void roll(int pins) {
         if (pins < 0) {
             throw new IllegalArgumentException("Los valores menores a cero, no son válidos");
-        } 
+        } else if (pins > 10) {
+            throw new IllegalArgumentException("Los valores mayores a 10 no son válidos");
+        }
     }
 
     /** Puntaje total. Lanza IllegalStateException si el juego no esta completo. */

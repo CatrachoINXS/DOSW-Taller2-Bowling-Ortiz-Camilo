@@ -118,9 +118,9 @@ public class BowlingGameTest {
         game.roll(5);
         game.roll(3);
         game.roll(5);
-        rollMany(game, 17, 0);
+        rollMany(game, 16, 0);
 
-        assertEquals(game.score(), 21);
+        assertEquals(21, game.score());
         assertTrue(game.isComplete());
     }
 

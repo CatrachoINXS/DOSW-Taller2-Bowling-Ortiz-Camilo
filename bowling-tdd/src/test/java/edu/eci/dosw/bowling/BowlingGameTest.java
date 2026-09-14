@@ -81,9 +81,7 @@ public class BowlingGameTest {
             game.roll(0);
             game.roll(0);
         }
-
-        game.getFrames().stream().forEach(f -> System.out.println(f.getPins() + " " + f.toString()));
-        
+         
         assertDoesNotThrow(() -> {
             game.roll(10);
             game.roll(10);

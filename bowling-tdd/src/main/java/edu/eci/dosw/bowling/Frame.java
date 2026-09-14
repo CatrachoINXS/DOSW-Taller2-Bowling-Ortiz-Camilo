@@ -3,6 +3,7 @@ package edu.eci.dosw.bowling;
 public class Frame {
     private int pins;
     private int attempts;
+    private boolean bonus = false;
     private FrameType frameType;
 
     public Frame() {
@@ -19,12 +20,21 @@ public class Frame {
         attempts++;
 
         if (!frameType.equals(FrameType.TENTH)) {
-            if (pins == 10 && attempts == 1) {
-                this.frameType = FrameType.STRIKE;
-            } else if (pins == 10 && attempts == 2) {
-                this.frameType = FrameType.SPARE;
+            this.frameType = validateFrameType();
+        } else {
+            if ((pins == 10 && attempts == 1) || (pins == 10 && attempts == 2)) {
+                bonus = true;
             }
         }
+    }
+
+    private FrameType validateFrameType() {
+        if (pins == 10 && attempts == 1) {
+            return FrameType.STRIKE;
+        } else if (pins == 10 && attempts == 2) {
+            return FrameType.SPARE;
+        }
+        return FrameType.NORMAL;
     }
 
     public int getPins() {
@@ -33,7 +43,7 @@ public class Frame {
 
     public boolean isComplete() {
         if (frameType.equals(FrameType.TENTH)) {
-            return attempts == 3;
+            return bonus ? attempts == 3 : attempts == 2;
         }
         return pins == 10 || attempts == 2;
     }
@@ -45,4 +55,5 @@ public class Frame {
     public void isTenthFrame() {
         this.frameType = FrameType.TENTH;
     }
+    
 }

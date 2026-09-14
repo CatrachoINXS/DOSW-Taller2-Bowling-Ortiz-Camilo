@@ -3,6 +3,7 @@ package edu.eci.dosw.bowling;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -88,6 +89,36 @@ public class BowlingGameTest {
             game.roll(10);
             game.roll(10);
         });
+    }
+
+    @Test
+    @DisplayName("Un juego con todos los tiros a cero retorna 0")
+    void gameWithZeroPinsShouldReturnScoreZero() {
+        BowlingGame game = new BowlingGame();
+        rollMany(game, 10, 0);
+        int score = game.score();
+
+        assertEquals(0, score);
+        assertTrue(game.isComplete());
+    }
+
+
+
+
+
+
+
+    private void rollMany(BowlingGame game, int times, int pins) {
+        for (int i = 0; i < times; i++) game.roll(pins);
+    }
+    // Juego perfecto: 12 strikes
+    private void rollPerfectGame(BowlingGame game) {
+        for (int i = 0; i < 12; i++) game.roll(10);
+    }
+    // Todos spares
+    private void rollAllSpares(BowlingGame game, int lastBonus) {
+        for (int i = 0; i < 10; i++) { game.roll(5); game.roll(5); }
+        game.roll(lastBonus);
     }
 
 }

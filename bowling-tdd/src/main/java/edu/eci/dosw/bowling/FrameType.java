@@ -1,5 +1,8 @@
 package edu.eci.dosw.bowling;
 
-public class FrameType {
-    
+public enum FrameType {
+    NORMAL,
+    SPARE,
+    STRIKE,
+    TENTH
 }

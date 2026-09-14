@@ -27,5 +27,8 @@ public class Frame {
         return pins == 10;
     }
 
+    public FrameType getFrameType() {
+        return frameType;
+    }
 
 }

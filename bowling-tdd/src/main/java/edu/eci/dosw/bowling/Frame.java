@@ -20,6 +20,8 @@ public class Frame {
 
         if (pins == 10 && attempts == 1) {
             this.frameType = FrameType.STRIKE;
+        } else if (pins == 10 && attempts == 2) {
+            this.frameType = FrameType.SPARE;
         }
     }
 

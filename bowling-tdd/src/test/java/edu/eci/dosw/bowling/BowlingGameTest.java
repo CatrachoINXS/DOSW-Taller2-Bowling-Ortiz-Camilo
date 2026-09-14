@@ -81,7 +81,7 @@ public class BowlingGameTest {
             game.roll(0);
             game.roll(0);
         }
-         
+
         assertDoesNotThrow(() -> {
             game.roll(10);
             game.roll(10);
@@ -97,6 +97,16 @@ public class BowlingGameTest {
         int score = game.score();
 
         assertEquals(0, score);
+        assertTrue(game.isComplete());
+    }
+
+    @Test
+    @DisplayName("El puntaje de un juego sin stikes ni spares es la suma de los pinos")
+    void gameWithoutStrikeAndSparesEqualsThePinsSum() {
+        BowlingGame game = new BowlingGame();
+        rollMany(game, 20, 4);
+
+        assertEquals(game.score(), 80);
         assertTrue(game.isComplete());
     }
 

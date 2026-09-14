@@ -17,6 +17,10 @@ public class Frame {
         }
         pins += newPins;
         attempts++;
+
+        if (pins == 10 && attempts == 1) {
+            this.frameType = FrameType.STRIKE;
+        }
     }
 
     public int getPins() {

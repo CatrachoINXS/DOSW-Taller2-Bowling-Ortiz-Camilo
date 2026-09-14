@@ -95,15 +95,12 @@ public class BowlingGameTest {
     @DisplayName("Un juego con todos los tiros a cero retorna 0")
     void gameWithZeroPinsShouldReturnScoreZero() {
         BowlingGame game = new BowlingGame();
-        rollMany(game, 10, 0);
+        rollMany(game, 20, 0);
         int score = game.score();
 
         assertEquals(0, score);
         assertTrue(game.isComplete());
     }
-
-
-
 
 
 

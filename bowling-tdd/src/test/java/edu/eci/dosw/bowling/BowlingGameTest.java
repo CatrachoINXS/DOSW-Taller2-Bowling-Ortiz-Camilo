@@ -62,4 +62,14 @@ public class BowlingGameTest {
         assertEquals(FrameType.STRIKE, game.getFrames().get(0).getFrameType());
     }
 
+    @Test
+    @DisplayName("roll(5) dos veces detecta spare en un frame")
+    void rollFivePinsTwiceDetectsSpareInAFrame() {
+        BowlingGame game = new BowlingGame();
+        game.roll(5);
+        game.roll(5);
+        
+        assertEquals(FrameType.SPARE, game.getFrames().get(0).getFrameType());
+    }
+
 }

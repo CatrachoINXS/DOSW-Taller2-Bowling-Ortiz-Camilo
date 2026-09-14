@@ -33,6 +33,9 @@ public class BowlingGame {
         if (frames.isEmpty() || frames.get(currentFrame).isComplete()) {
             frames.add(new Frame());
             currentFrame++;
+            if (frames.size() == 10) {
+                frames.get(currentFrame).isTenthFrame();
+            }
         }
         frames.get(currentFrame).addPins(pins);
     }

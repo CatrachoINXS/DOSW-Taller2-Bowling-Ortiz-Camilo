@@ -12,17 +12,20 @@ public class Frame {
     }
 
     public void addPins(int newPins) {
-        if (pins + newPins > 10) {
+        if (pins + newPins > 10 && !frameType.equals(FrameType.TENTH)) {
             throw new IllegalArgumentException("La suma de pinos en el frame no puede ser más de 10");
         }
         pins += newPins;
         attempts++;
 
-        if (pins == 10 && attempts == 1) {
-            this.frameType = FrameType.STRIKE;
-        } else if (pins == 10 && attempts == 2) {
-            this.frameType = FrameType.SPARE;
+        if (!frameType.equals(FrameType.TENTH)) {
+            if (pins == 10 && attempts == 1) {
+                this.frameType = FrameType.STRIKE;
+            } else if (pins == 10 && attempts == 2) {
+                this.frameType = FrameType.SPARE;
+            }
         }
+        
     }
 
     public int getPins() {
@@ -30,11 +33,18 @@ public class Frame {
     }
 
     public boolean isComplete() {
+        if (frameType.equals(FrameType.TENTH)) {
+            return attempts == 3;
+        }
         return pins == 10 || attempts == 2;
     }
 
     public FrameType getFrameType() {
         return frameType;
+    }
+
+    public void isTenthFrame() {
+        this.frameType = FrameType.TENTH;
     }
 
 }

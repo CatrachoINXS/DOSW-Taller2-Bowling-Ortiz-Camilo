@@ -124,6 +124,19 @@ public class BowlingGameTest {
         assertTrue(game.isComplete());
     }
 
+    @Test
+    @DisplayName("Un Strike en el frame 1 añade puntos extra")
+    void aStrikeInTheFirstFrameAddsThePinsOfTheNextFrame() {
+        BowlingGame game = new BowlingGame();
+        game.roll(10);
+        game.roll(4);
+        game.roll(3);
+        rollMany(game, 16, 0);
+
+        assertEquals(24, game.score());
+        assertTrue(game.isComplete());
+    }
+
 
 
 

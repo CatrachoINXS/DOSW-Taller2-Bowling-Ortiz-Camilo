@@ -137,6 +137,19 @@ public class BowlingGameTest {
         assertTrue(game.isComplete());
     }
 
+    @Test
+    @DisplayName("Dos strikes y un roll(5) suman correctamente")
+    void twoStikesAndThenARollSumCorrectly() {
+        BowlingGame game = new BowlingGame();
+        game.roll(10);
+        game.roll(10);
+        game.roll(5);
+        rollMany(game, 15, 0);
+
+        assertEquals(40, game.score());
+        assertTrue(game.isComplete());
+    }
+
 
 
 

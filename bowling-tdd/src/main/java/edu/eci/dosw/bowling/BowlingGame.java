@@ -20,6 +20,10 @@ public class BowlingGame {
     /** Registra pinos derribados. Lanza IllegalArgumentException si pines < 0 o > 10.
      * Lanza IllegalStateException si el juego ya termino. */
     public void roll(int pins) {
+        if (isComplete()) {
+            throw new IllegalStateException("No se puede hacer roll cuando el juego está completo");
+        }
+
         if (pins < 0) {
             throw new IllegalArgumentException("Los valores menores a cero, no son válidos");
         } else if (pins > 10) {
@@ -41,8 +45,7 @@ public class BowlingGame {
 
     /** true cuando los 10 frames han sido completados. */
     public boolean isComplete() {
-        // TODO: implementar con TDD
-        return false;
+        return this.frames.size() == 10;
     }
 
     public List<Frame> getFrames() { return List.copyOf(frames); }

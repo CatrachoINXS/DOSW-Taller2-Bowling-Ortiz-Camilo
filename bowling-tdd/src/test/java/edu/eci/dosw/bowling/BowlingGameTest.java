@@ -110,6 +110,22 @@ public class BowlingGameTest {
         assertTrue(game.isComplete());
     }
 
+    @Test
+    @DisplayName("Un Spare en el frame 1 añade puntos extra")
+    void aSpareInTheFirstFrameAddsThePinsOfTheFirstRollInTheNextFrame() {
+        BowlingGame game = new BowlingGame();
+        game.roll(5);
+        game.roll(5);
+        game.roll(3);
+        game.roll(5);
+        rollMany(game, 17, 0);
+
+        assertEquals(game.score(), 21);
+        assertTrue(game.isComplete());
+    }
+
+
+
 
 
 

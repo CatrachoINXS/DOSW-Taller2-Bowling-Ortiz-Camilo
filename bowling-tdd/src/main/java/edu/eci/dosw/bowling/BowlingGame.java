@@ -21,7 +21,7 @@ public class BowlingGame {
      * Lanza IllegalStateException si el juego ya termino. */
     public void roll(int pins) {
         if (isComplete()) {
-            throw new IllegalStateException("No se puede hacer roll cuando el juego está completo");
+            throw new IllegalStateException("No se puede hacer roll cuando el juego ya terminó");
         }
 
         if (pins < 0) {

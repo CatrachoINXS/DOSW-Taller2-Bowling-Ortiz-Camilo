@@ -14,7 +14,7 @@ public class BowlingGame {
 
     public BowlingGame() {
         this.frames = new ArrayList<>();
-        this.currentFrame = 0;
+        this.currentFrame = -1;
     }
 
     /** Registra pinos derribados. Lanza IllegalArgumentException si pines < 0 o > 10.
@@ -25,6 +25,12 @@ public class BowlingGame {
         } else if (pins > 10) {
             throw new IllegalArgumentException("Los valores mayores a 10 no son válidos");
         }
+        
+        if (frames.isEmpty() || frames.get(currentFrame).isComplete()) {
+            frames.add(new Frame());
+            currentFrame++;
+        }
+        frames.get(currentFrame).addPins(pins);
     }
 
     /** Puntaje total. Lanza IllegalStateException si el juego no esta completo. */

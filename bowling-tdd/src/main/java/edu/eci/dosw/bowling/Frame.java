@@ -14,10 +14,9 @@ public class Frame {
     public void addPins(int newPins) {
         if (pins + newPins > 10) {
             throw new IllegalArgumentException("La suma de pinos en el frame no puede ser más de 10");
-        } else {
-            pins += newPins;
-            attempts++;
         }
+        pins += newPins;
+        attempts++;
     }
 
     public int getPins() {
@@ -25,10 +24,7 @@ public class Frame {
     }
 
     public boolean isComplete() {
-        if (pins == 10) {
-            return true;
-        }
-        return false;
+        return pins == 10;
     }
 
 

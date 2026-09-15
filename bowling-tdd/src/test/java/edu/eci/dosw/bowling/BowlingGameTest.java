@@ -184,7 +184,13 @@ public class BowlingGameTest {
         assertThrows(IllegalStateException.class, () -> game.score());
     }
 
-
+    @Test
+    @DisplayName("isComplete() despues de nueve frames completos retorna false")
+    void isCompleteAfterPlayedNineFramesReturnsFalse() {
+        BowlingGame game = new BowlingGame();
+        rollMany(game, 18, 3);
+        assertThrows(IllegalStateException.class, () -> game.score());
+    }
 
 
     private void rollMany(BowlingGame game, int times, int pins) {

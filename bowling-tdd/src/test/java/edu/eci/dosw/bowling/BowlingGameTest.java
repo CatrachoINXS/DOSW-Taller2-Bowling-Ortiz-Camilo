@@ -150,7 +150,14 @@ public class BowlingGameTest {
         assertTrue(game.isComplete());
     }
 
+    @Test
+    @DisplayName("Todos spare y el último roll(5) dan 150 puntos")
+    void rollAllSparesAndThenRollFiveShouldSumCorrectly() {
+        BowlingGame game = new BowlingGame();
+        rollAllSpares(game, 5);
 
+        assertEquals(150, game.score());
+    }
 
 
 

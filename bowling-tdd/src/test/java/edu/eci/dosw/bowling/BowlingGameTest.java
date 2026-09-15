@@ -168,6 +168,15 @@ public class BowlingGameTest {
         assertEquals(300, game.score());
     }
 
+    @Test
+    @DisplayName("score() antes de completar el juego lanza excepcion")
+    void scoreBeforeGameIsComplete_throwsException() {
+        BowlingGame game = new BowlingGame();
+        game.roll(6);
+        
+        assertThrows(IllegalStateException.class, () -> game.score());
+    }
+
 
 
 

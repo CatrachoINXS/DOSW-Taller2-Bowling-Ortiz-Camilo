@@ -201,6 +201,17 @@ public class BowlingGameTest {
         assertTrue(game.isComplete());
     }
 
+    @Test
+    @DisplayName("spare en el frame 10 y tiro bonus completa el juego")
+    void isCompleteAfterSpareInTenthFrameAndBonusReturnsTrue() {
+        BowlingGame game = new BowlingGame();
+        rollMany(game, 18, 3);
+        game.roll(5);
+        game.roll(5);
+        game.roll(9);
+        assertTrue(game.isComplete());
+    }
+
 
     private void rollMany(BowlingGame game, int times, int pins) {
         for (int i = 0; i < times; i++) game.roll(pins);

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Frame.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bowling-tdd</a> &gt; <a href="index.source.html" class="el_package">edu.eci.dosw.bowling</a> &gt; <span class="el_source">Frame.java</span></div><h1>Frame.java</h1><pre class="source lang-java linenums">package edu.eci.dosw.bowling;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Frame {
+    private int pins;
+    private int attempts;
+<span class="fc" id="L9">    private boolean bonus = false;</span>
+    private FrameType frameType;
+    private List&lt;Integer&gt; rolls;
+
+<span class="fc" id="L13">    public Frame() {</span>
+<span class="fc" id="L14">        this.pins = 0;</span>
+<span class="fc" id="L15">        this.attempts = 0;</span>
+<span class="fc" id="L16">        this.frameType = FrameType.NORMAL;</span>
+<span class="fc" id="L17">        this.rolls = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L18">    }</span>
+
+    public void addPins(int newPins) {
+<span class="fc bfc" id="L21" title="All 4 branches covered.">        if (pins + newPins &gt; 10 &amp;&amp; !frameType.equals(FrameType.TENTH)) {</span>
+<span class="fc" id="L22">            throw new IllegalArgumentException(&quot;La suma de pinos en el frame no puede ser más de 10&quot;);</span>
+        }
+<span class="fc" id="L24">        pins += newPins;</span>
+<span class="fc" id="L25">        attempts++;</span>
+<span class="fc" id="L26">        rolls.add(newPins);</span>
+
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (!frameType.equals(FrameType.TENTH)) {</span>
+<span class="fc" id="L29">            this.frameType = validateFrameType();</span>
+<span class="fc" id="L30">        } else {</span>
+<span class="pc bpc" id="L31" title="1 of 8 branches missed.">            if ((pins == 10 &amp;&amp; attempts == 1) || (pins == 10 &amp;&amp; attempts == 2)) {</span>
+<span class="fc" id="L32">                bonus = true;</span>
+            }
+        }
+<span class="fc" id="L35">    }</span>
+
+    private FrameType validateFrameType() {
+<span class="fc bfc" id="L38" title="All 4 branches covered.">        if (pins == 10 &amp;&amp; attempts == 1) {</span>
+<span class="fc" id="L39">            return FrameType.STRIKE;</span>
+<span class="pc bpc" id="L40" title="1 of 4 branches missed.">        } else if (pins == 10 &amp;&amp; attempts == 2) {</span>
+<span class="fc" id="L41">            return FrameType.SPARE;</span>
+        }
+<span class="fc" id="L43">        return FrameType.NORMAL;</span>
+    }
+
+    public int getPins() {
+<span class="fc" id="L47">        return pins;</span>
+    }
+
+    public boolean isComplete() {
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (frameType.equals(FrameType.TENTH)) {</span>
+<span class="fc bfc" id="L52" title="All 6 branches covered.">            return bonus ? attempts == 3 : attempts == 2;</span>
+        }
+<span class="fc bfc" id="L54" title="All 4 branches covered.">        return pins == 10 || attempts == 2;</span>
+    }
+
+    public FrameType getFrameType() {
+<span class="fc" id="L58">        return frameType;</span>
+    }
+
+    public void isTenthFrame() {
+<span class="fc" id="L62">        this.frameType = FrameType.TENTH;</span>
+<span class="fc" id="L63">    }</span>
+
+    public List&lt;Integer&gt; getRolls() {
+<span class="fc" id="L66">        return rolls;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.15.202606040825</span></div></body></html>

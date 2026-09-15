@@ -177,6 +177,13 @@ public class BowlingGameTest {
         assertThrows(IllegalStateException.class, () -> game.score());
     }
 
+    @Test
+    @DisplayName("isComplete() al inicio del juego retorna false")
+    void isCompleteAtTheBegginingOfTheGameReturnsFalse() {
+        BowlingGame game = new BowlingGame();
+        assertThrows(IllegalStateException.class, () -> game.score());
+    }
+
 
 
 

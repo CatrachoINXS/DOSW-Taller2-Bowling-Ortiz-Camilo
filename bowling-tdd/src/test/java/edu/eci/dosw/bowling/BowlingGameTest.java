@@ -159,6 +159,15 @@ public class BowlingGameTest {
         assertEquals(150, game.score());
     }
 
+    @Test
+    @DisplayName("Un juego perfecto retorna el máximo puntaje. 300 puntos")
+    void rollPerfectGameShouldSumCorrectly() {
+        BowlingGame game = new BowlingGame();
+        rollPerfectGame(game);
+
+        assertEquals(300, game.score());
+    }
+
 
 
 

@@ -2,6 +2,7 @@ package edu.eci.dosw.bowling;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -181,7 +182,7 @@ public class BowlingGameTest {
     @DisplayName("isComplete() al inicio del juego retorna false")
     void isCompleteAtTheBegginingOfTheGameReturnsFalse() {
         BowlingGame game = new BowlingGame();
-        assertThrows(IllegalStateException.class, () -> game.score());
+        assertFalse(game.isComplete());
     }
 
     @Test
@@ -189,7 +190,15 @@ public class BowlingGameTest {
     void isCompleteAfterPlayedNineFramesReturnsFalse() {
         BowlingGame game = new BowlingGame();
         rollMany(game, 18, 3);
-        assertThrows(IllegalStateException.class, () -> game.score());
+        assertFalse(game.isComplete());
+    }
+
+    @Test
+    @DisplayName("isComplete() despues de diez frames normales retorna true")
+    void isCompleteAfterPlayedTenNormalFramesReturnsTrue() {
+        BowlingGame game = new BowlingGame();
+        rollMany(game, 20, 3);
+        assertTrue(game.isComplete());
     }
 
 

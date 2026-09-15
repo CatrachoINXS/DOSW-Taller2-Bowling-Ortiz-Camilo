@@ -223,6 +223,14 @@ public class BowlingGameTest {
         assertTrue(game.isComplete());
     }
 
+    @Test
+    @DisplayName("isComplete() despues de un juego perfecto retorna true")
+    void isCompleteAfterAPerfectGameReturnsTrue() {
+        BowlingGame game = new BowlingGame();
+        rollPerfectGame(game);
+        assertTrue(game.isComplete());
+    }
+
 
     private void rollMany(BowlingGame game, int times, int pins) {
         for (int i = 0; i < times; i++) game.roll(pins);

@@ -58,13 +58,31 @@ La primera vez que se ejecutó el `mvn clean verify`, el coverage marcó 96% en 
 
 |Enlace al PR|Fecha de merge|Modulos cubiertos|
 |:---|:---|:---|
-|https://github.com/CatrachoINXS/DOSW-Taller2-Bowling-Ortiz-Camilo/pull/1|2026-09-16T14:26|Partes 1, 2, 3 y avance en documentación|
-||||
-||||
+|![https://github.com/CatrachoINXS/DOSW-Taller2-Bowling-Ortiz-Camilo/pull/1](https://github.com/CatrachoINXS/DOSW-Taller2-Bowling-Ortiz-Camilo/pull/1)|2026-09-16T14:26|Partes 1, 2, 3 y avance en documentación|
+|![https://github.com/CatrachoINXS/DOSW-Taller2-Bowling-Ortiz-Camilo/pull/2](https://github.com/CatrachoINXS/DOSW-Taller2-Bowling-Ortiz-Camilo/pull/2)|2026-09-16T15:03|Partes 4 - Covertura y análisis estático|
+|![https://github.com/CatrachoINXS/DOSW-Taller2-Bowling-Ortiz-Camilo/pull/2](https://github.com/CatrachoINXS/DOSW-Taller2-Bowling-Ortiz-Camilo/pull/3)|2026-09-16T16:32|Parte 5 - Documentación|
 
 ## 7. Reflexión
 
-#### - *01 ¿Qué casó edge del Bowling fue el más difícil de implementar con TDD y por que?*
+#### - *01 ¿Qué caso edge del Bowling fue el más difícil de implementar con TDD y por que?*
+
+El caso más dificil de implementar con TDD fue el `B5`, porque había que resolver lo de los strikes consecutivos. Para los anteriores casos habia intentado hacer lo mínimo para que pasara la prueba sin pensar en las otras funcionalidades y al principio tenia pensado que cada frame tuviera dos atributos correspondientes a los tiros. Después me di cuenta que no tenia sentido guardar los dos atributos si el frame era strike. Entonces para este caso hubo que refactorizar bastante e implementar toda la logica con listas que guardaran los tiros, de modo que si era strike solo guardaba 10, y si no, guardaba los tiros que correspondieran.
+
 #### - *02 ¿Qué parte del código cambió durante REFACTOR sin modificar el comportamiento observable?*
+
+Durante la parte de REFACTOR lo que cambió después de correr las pruebas eran `if` u otros condicionales innecesarios que solo agregaban más ruido al código.
+
 #### - *03 ¿Qué casos de prueba descubriste al revisar el reporte de cobertura de JaCoCo que no habían considerado antes?*
+
+Realmente ninguno, en el reporte de coberturas se probaron los casos necesarios, y aunque en la clase `Frame` marca que hace falta probar un caso que es cuando la cantidad de pinos son 10 y la cantidad de intentos no es dos ni uno. La cuestión es esto no tiene sentido probarlo porque esa validacion solo aplica para el décimo frame y recordemos que cada frame que no sea TENTH tiene maximo dos intentos.
+
 #### - *04 ¿Qué hallazgo de SonarQube produjo un cambio real en el código?*
+
+La clase `BowlingScorerTest` no tenía pruebas, así que se agregaron pruebas. La clase `BowlingScorer` tenia el constructor publico implicito asi que lo cambié a un constructor privado, y lo otro es que en una prueba habia un `assert` con los parámetros invertidos entre el valor esperado y el valor obtenido.
+
+
+
+
+
+
+

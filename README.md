@@ -30,10 +30,10 @@ A continuación se muestra la evidencia de un Ciclo de TDD, específicamente el 
 
 ### RED
 
-![](bowling-tdd/docs/evidence/capturaRED.png)
+![](bowling-tdd/docs/evidence/CapturaRED.png)
 
 ### GREEN
-![](bowling-tdd/docs/evidence/capturaGREEN.png)
+![](bowling-tdd/docs/evidence/CapturaGREEN.png)
 
 ## 4. JaCoCo
 

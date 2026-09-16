@@ -107,7 +107,7 @@ public class BowlingGameTest {
         BowlingGame game = new BowlingGame();
         rollMany(game, 20, 4);
 
-        assertEquals(game.score(), 80);
+        assertEquals(80, game.score());
         assertTrue(game.isComplete());
     }
 

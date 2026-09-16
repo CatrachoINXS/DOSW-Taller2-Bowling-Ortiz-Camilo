@@ -5,6 +5,10 @@ import java.util.stream.IntStream;
 
 public class BowlingScorer {
 
+    private BowlingScorer() {
+        
+    }
+
     public static int calculate(List<Frame> frames) {
         return IntStream.range(0, frames.size())
             .map(i -> {

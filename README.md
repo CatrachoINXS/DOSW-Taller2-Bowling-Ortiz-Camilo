@@ -30,16 +30,37 @@ A continuación se muestra la evidencia de un Ciclo de TDD, específicamente el 
 
 ### RED
 
-![](bowling-tdd/docs/evidence/capturaRED.png)
+![](bowling-tdd/docs/evidence/CapturaRED.png)
 
 ### GREEN
-![](bowling-tdd/docs/evidence/capturaGREEN.png)
+![](bowling-tdd/docs/evidence/CapturaGREEN.png)
 
 ## 4. JaCoCo
 
+![](bowling-tdd/docs/evidence/jacoco-final.png)
+
+![](bowling-tdd/docs/evidence/jacoco-final-2.png)
+
+La primera vez que se ejecutó el `mvn clean verify`, el coverage marcó 96% en branches y un 99% en lineas. Así que no fue necesario realizar más tests que subieran el coverage.
+
 ## 5. SonarQube
 
+### Captura del coverage
+![](bowling-tdd/docs/evidence/sonarqube.png)
+
+### Captura de los issues encontrados
+![](bowling-tdd/docs/evidence/sonarqube_issues.png)
+
+### Captura del estado del Quality Gate
+![](bowling-tdd/docs/evidence/sonarqube_quality_gate.png)
+
 ## 6. Pull Requests
+
+|Enlace al PR|Fecha de merge|Modulos cubiertos|
+|:---|:---|:---|
+|https://github.com/CatrachoINXS/DOSW-Taller2-Bowling-Ortiz-Camilo/pull/1|2026-09-16T14:26|Partes 1, 2, 3 y avance en documentación|
+||||
+||||
 
 ## 7. Reflexión
 
